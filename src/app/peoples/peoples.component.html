@@ -1,0 +1,15 @@
+<!-- <p>
+  <input type="text" [(ngModel)]="personName" >
+</p>
+<button type="button" (click)="onClickSearchPerson()">click</button>
+<p>{{personName}}</p> -->
+<div class="display-content">
+    <div class="display-content-item" *ngFor="let item of trendingPeople" (click)="onClickDetails(item)">
+        <div class="display-content-item-img">
+         <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{item.profile_path}}">
+        </div>
+        <div class="display-content-item-content">
+          {{item.name}}
+        </div>
+    </div>
+  </div>

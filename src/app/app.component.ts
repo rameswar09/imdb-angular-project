@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {apiServices} from './services/apiServices'
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'IMDB';
+  itemName=""
+  constructor(private apiServices:apiServices ) { }
+onClickSearch=()=>{
+}
 }

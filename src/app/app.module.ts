@@ -1,18 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MoviesComponent } from './movies/movies.component';
+import { PeoplesComponent } from './peoples/peoples.component';
+import {apiServices} from './services/apiServices';
+import {detailsService} from './services/details'
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MoviesComponent,
+    PeoplesComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    FormsModule
+
   ],
-  providers: [],
+  providers: [apiServices,detailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,26 @@
+<div *ngIf="isMovie" class="details">
+  <div >
+    <img class="details-img" src="https://image.tmdb.org/t/p/w500{{displayItemDetails.poster_path}}" >
+  </div>
+  <div class="details-description">
+    <div class="details-description-title">
+        <strong>Title: </strong><span>{{displayItemDetails.original_title}}</span>
+    </div>
+    <div class="details-description-overview">
+      <strong>Overview: </strong><span>{{displayItemDetails.overview}}</span>
+    </div>
+  </div>
+</div>
+<div *ngIf="isPerson" class="details">
+  <div >
+    <img class="details-img" src="https://image.tmdb.org/t/p/w500{{displayItemDetails.profile_path}}" >
+  </div>
+  <div class="details-description">
+    <div class="details-description-title">
+        <strong>Name: </strong><span>{{displayItemDetails.name}}</span>
+    </div>
+    <div class="details-description-overview">
+      <!-- <strong>Overview: </strong><span>{{displayItemDetails.overview}}</span> -->
+    </div>
+  </div>
+</div>

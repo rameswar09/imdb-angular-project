@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { apiServices } from '../services/apiServices'
-import {detailsService} from '../services/details'
+import { detailsService } from '../services/details'
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-movies',
@@ -8,32 +8,26 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-
+  @Input() searchText: string
   movieName: String;
-  movies={
-    results:[]
+  movies = {
+    results: []
   }
-  trendingMovies=[]
-  constructor( private API:apiServices,private details:detailsService,private router:Router) { }
+  trendingMovies = []
+  constructor(private API: apiServices, private details: detailsService, private router: Router) { }
 
-  onClickSearchMovies=()=>{
-    this.trendingMovies= this.movies.results.filter((item)=>{
-      if(item.title.toLowerCase().includes(this.movieName.toLowerCase())){
-        return item
-      }
-    })
-    console.log(this.trendingMovies)
+  onSearch = (event) => {
+    console.log(event)
   }
-
-  onClickDetails=(data)=>{
-    console.log(data)
+  onClickDetails = (data) => {
+    console.log(this.searchText)
     this.details.setData(data)
     this.router.navigate(['details'])
   }
 
   async ngOnInit() {
-        this.movies= await this.API.getTrendingMovies()
-        this.trendingMovies=this.movies.results
+    this.movies = await this.API.getTrendingMovies()
+    this.trendingMovies = this.movies.results
   }
 
 }

@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.display-content{
+    position: absolute;
+    width: 92%;
+    /* height: 100%; */
+    /* border: 1px solid white; */
+    top: 9%;
+    left: 4%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 11px;
+
+}
+.display-content-item{
+     height: 260px;
+     transition: all 0.3s ease-in-out;
+
+}
+.display-content-item :hover{
+     cursor: pointer;
+      transition: all .5s ease-in-out;
+     transform: scale(1.04);
+     /* background-color: grey;
+     color: white */
+}
+.display-content-item-img{
+    width: 100%;
+    height: 200px;
+    z-index: 10;
+
+}
+img{
+    border-radius: 8px;
+}
+.movie-poster{
+    width: 100%;
+    height: 200px;
+}
+.display-content-item-content{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 8px;
+}

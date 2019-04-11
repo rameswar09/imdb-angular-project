@@ -1,18 +1,10 @@
-<!-- <p>
-  <input type="text" [(ngModel)]="movieName" >
-</p>
-<p>{{movieName}}</p>
-<button  type="button" (click)="onClickSearchMovies()">click</button>
-
-
-<button type="button" (click)="onClickDetails()">details</button> -->
 <div class="display-content">
   <div class="display-content-item" *ngFor="let item of trendingMovies" (click)="onClickDetails(item)">
-      <div class="display-content-item-img">
-       <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{item.poster_path}}">
-      </div>
-      <div class="display-content-item-content">
-        {{item.title}}
-      </div>
+    <div class="display-content-item-img">
+      <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{item.poster_path}}">
+    </div>
+    <div class="display-content-item-content">
+      {{item.title}}
+    </div>
   </div>
 </div>

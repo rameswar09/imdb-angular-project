@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {apiServices} from './services/apiServices'
+import { Component, Output, EventEmitter, } from '@angular/core';
+import { apiServices } from './services/apiServices';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,8 +10,17 @@ import {apiServices} from './services/apiServices'
 })
 export class AppComponent {
   title = 'IMDB';
-  itemName=""
-  constructor(private apiServices:apiServices ) { }
-onClickSearch=()=>{
-}
+  itemName = ""
+  constructor(
+    private apiServices: apiServices,
+    private router: Router,
+    private activatedroute: ActivatedRoute) { }
+  onClickSearch = () => {
+    this.itemName = this.itemName.replace(" ", "_");
+    if (this.activatedroute.snapshot._routerState.url == "/movies") {
+      this.router.navigate([`movies/${this.itemName}`])
+    } else {
+      this.router.navigate([`actors/${this.itemName}`])
+    }
+  }
 }

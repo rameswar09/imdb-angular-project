@@ -1,0 +1,22 @@
+<div *ngIf="isMovieShow" class="display-content">
+  <div class="display-content-item" *ngFor="let item of trendingMovies" (click)="onClickDetails(item)">
+      <div class="display-content-item-img">
+       <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{item.poster_path}}">
+      </div>
+      <div class="display-content-item-content">
+        {{item.title}}
+      </div>
+  </div>
+</div>
+
+
+<div *ngIf="isActorShow" class="display-content">
+    <div class="display-content-item" *ngFor="let item of trendingPeople" (click)="onClickDetails(item)">
+        <div class="display-content-item-img">
+         <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{item.profile_path}}">
+        </div>
+        <div class="display-content-item-content">
+          {{item.name}}
+        </div>
+    </div>
+  </div>

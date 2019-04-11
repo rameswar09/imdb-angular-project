@@ -1,19 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!-- <a routerLink="/movies">movies</a><br>
-<a routerLink="/peoples">peoples</a> -->
 <div class="menu-bar">
   <img src="../assets/logo.png" alt="logo" class="imdb-logo">
 </div>
 <div class="search-bar">
   <div class="menu">
-      <a routerLink="/movies"><button type="button" class="search-button">MOVIES</button></a>
-      <a routerLink="/peoples"><button type="button" class="search-button">ACTORS</button></a>
+    <a routerLink="/movies"><button type="button" class="search-button">MOVIES</button></a>
+    <a routerLink="/peoples"><button type="button" class="search-button">ACTORS</button></a>
   </div>
   <div class="search-section">
-      <input type="text" placeholder="search" [(ngModel)]="itemName" >
-      <button type="button" class="search-button" (click)="onClickSearch()">SEARCH </button>
+    <input type="text" placeholder="search" [(ngModel)]="itemName">
+    <button type="button" class="search-button" (click)="onClickSearch()">SEARCH </button>
   </div>
 </div>
 <div class="main-content">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

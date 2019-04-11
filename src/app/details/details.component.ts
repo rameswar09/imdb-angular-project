@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
   isMovie = false;
   isPerson = false;
-  displayItemDetails = ""
+  displayItemDetails: any
   constructor(private detailsService: detailsService, private router: ActivatedRoute) { }
 
   ngOnInit() {

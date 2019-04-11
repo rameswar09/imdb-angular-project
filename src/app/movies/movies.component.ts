@@ -10,9 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class MoviesComponent implements OnInit {
   @Input() searchText: string
   movieName: String;
-  movies = {
-    results: []
-  }
+  movies: any
   trendingMovies = []
   constructor(private API: apiServices, private details: detailsService, private router: Router) { }
 
@@ -20,7 +18,6 @@ export class MoviesComponent implements OnInit {
     console.log(event)
   }
   onClickDetails = (data) => {
-    console.log(this.searchText)
     this.details.setData(data)
     this.router.navigate(['details'])
   }

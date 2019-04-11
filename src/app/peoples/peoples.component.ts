@@ -9,9 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PeoplesComponent implements OnInit {
   personName: String;
-  peoples = {
-    results: []
-  }
+  peoples :any
   trendingPeople = []
   constructor(private API: apiServices, private detailsService: detailsService, private router: Router) { }
 

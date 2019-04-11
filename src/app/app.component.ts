@@ -17,7 +17,7 @@ export class AppComponent {
     private activatedroute: ActivatedRoute) { }
   onClickSearch = () => {
     this.itemName = this.itemName.replace(" ", "_");
-    if (this.activatedroute.snapshot._routerState.url == "/movies") {
+    if (this.router.routerState.snapshot.url ==="/movies") {
       this.router.navigate([`movies/${this.itemName}`])
     } else {
       this.router.navigate([`actors/${this.itemName}`])

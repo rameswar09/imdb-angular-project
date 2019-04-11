@@ -10,17 +10,13 @@ import { detailsService } from '../services/details'
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  movies = {
-    results: []
-  }
+  movies: any
   trendingMovies = []
-  peoples = {
-    results: []
-  }
+  peoples: any
   trendingPeople = []
   searchText: string
-  isMovieShow=false;
-  isActorShow=false
+  isMovieShow = false;
+  isActorShow = false
   constructor(private activatedroute: ActivatedRoute, private API: apiServices, private details: detailsService, private router: Router) { }
 
   onClickDetails = (data) => {
@@ -33,16 +29,16 @@ export class SearchComponent implements OnInit {
     this.activatedroute.params.subscribe((params) => {
       this.searchText = params.search.replace("_", " ");
     })
-    if (this.activatedroute.snapshot._routerState.url.includes("movies")) {
+    if (this.router.routerState.snapshot.url.includes("movies")) {
       this.movies = await this.API.getTrendingMovies()
       this.trendingMovies = this.movies.results;
       this.trendingMovies = this.trendingMovies.filter((item) => item.title == this.searchText)
-      this.isMovieShow=true
+      this.isMovieShow = true
     } else {
-      this.peoples= await this.API.getTrendingPeoples()
+      this.peoples = await this.API.getTrendingPeoples()
       this.trendingPeople = this.peoples.results
       this.trendingPeople = this.trendingPeople.filter((item) => item.name == this.searchText)
-      this.isActorShow=true
+      this.isActorShow = true
     }
 
   }

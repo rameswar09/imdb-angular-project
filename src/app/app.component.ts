@@ -10,17 +10,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   title = 'IMDB';
-  itemName = ""
+  itemName = "";
+  // isSearchShow=false
   constructor(
     private apiServices: apiServices,
     private router: Router,
     private activatedroute: ActivatedRoute) { }
-  onClickSearch = () => {
-    this.itemName = this.itemName.replace(" ", "_");
-    if (this.router.routerState.snapshot.url ==="/movies") {
+  onClickSearch = async () => {
+    this.itemName= await this.itemName.replace(/\s+/g, "")
+    if (this.router.routerState.snapshot.url.startsWith("/movies")) {
       this.router.navigate([`movies/${this.itemName}`])
     } else {
       this.router.navigate([`actors/${this.itemName}`])
     }
+    this.itemName=""
   }
 }
